@@ -10,6 +10,13 @@ if(!isset($_POST["upload"])){
     $token = TokenManager::create();
     require 'form.php';
 }elseif(TokenManager::check()){
-    echo VideoConverter::getFile();    
-
+    
+    if(isset($_POST["out"]) && isset($_POST["start"]) && isset($_POST["length"])){
+        $out = htmlspecialchars($_POST["out"]);
+        $start = htmlspecialchars($_POST["start"]);
+        $length = htmlspecialchars($_POST["length"]);
+        $fps = htmlspecialchars($_POST["fps"]);;
+        $gifFile =  VideoConverter::sample("$out.gif",$start,$length,$fps); 
+    }
+    require 'gifDisplay.php';
 }

@@ -1,6 +1,6 @@
-SVGWatermarkRemover
+V2GConverter
 =====
-**SVGWatermarkRemover** is an SVG watermark remover for starUML 3.0 svg exports.
+**V2GConverter** is a video to Gif converter with ffmpeg
 ## Prerequisites
 * PHP 5.6 and above
 * apache2 server
@@ -8,12 +8,15 @@ SVGWatermarkRemover
 ## Installation
 Clone this repository into your /var/www folder (or your favorite working folder)
 ```
-git clone https://github.com/sldevand/SVGWatermarkRemover.git
-cd SVGWatermarkRemover
-mkdir output
-sudo chmod -R 777 output
+git clone https://github.com/sldevand/V2GConverter.git
+cd V2GConverter
+mkdir out
+mkdir upload
+sudo chmod -R 777 out
+sudo chmod -R 777 upload
+sudo chmod -R +x scripts/vid2gif-sample
 ```
-if you want to install bootstrap
+Install bootstrap
 ```
 npm install
 ```
@@ -34,10 +37,12 @@ sudo service apache2 restart
 ```
 
 ## Usage
-http://localhost/SVGWatermarkRemover/
+http://localhost/V2GConverter/
 
 * Click on browse button.
-* You can select multiple files.
+* You can select one video file.
+* Set the gif file name.
+* Set the start, duration and fps
 * Click on upload button.
 * You have the result inside the browser.
-* You can copy your files from /var/www/output folder.
+* You can copy your gif from the browser (right click -> save picture as...).
