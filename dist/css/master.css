@@ -1,3 +1,6 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+.img-fluid{
 
+    margin-bottom: 20px;
+}

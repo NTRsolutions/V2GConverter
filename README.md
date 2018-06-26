@@ -10,8 +10,6 @@ Clone this repository into your /var/www folder (or your favorite working folder
 ```
 git clone https://github.com/sldevand/V2GConverter.git
 cd V2GConverter
-mkdir out
-mkdir upload
 sudo chmod -R 777 out
 sudo chmod -R 777 upload
 sudo chmod -R +x scripts/vid2gif-sample
