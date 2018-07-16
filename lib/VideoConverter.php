@@ -3,7 +3,7 @@ namespace Utils;
 
 class VideoConverter
 {
-    private static $outDir="out/"; 
+    private static $outDir="out/";
     private static $uploadDir="uploads/";
 
     public static function sample($dest,$start,$length,$fps){
@@ -16,7 +16,7 @@ class VideoConverter
 
     private static function getVideo(){
         self::recursiveDelete("upload");
-        $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
+        $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma","webm");
         $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
 
         if ((($_FILES["fileToUpload"]["type"] == "video/mp4")
@@ -24,7 +24,8 @@ class VideoConverter
         || ($_FILES["fileToUpload"]["type"] == "audio/wma")
         || ($_FILES["fileToUpload"]["type"] == "image/pjpeg")
         || ($_FILES["fileToUpload"]["type"] == "image/gif")
-        || ($_FILES["fileToUpload"]["type"] == "image/jpeg"))
+        || ($_FILES["fileToUpload"]["type"] == "image/jpeg")
+        || ($_FILES["fileToUpload"]["type"] == "video/webm"))
 
         && ($_FILES["fileToUpload"]["size"] < 100000000)
         && in_array($extension, $allowedExts))
@@ -36,7 +37,7 @@ class VideoConverter
         }
         else
         {
-              
+
 
                 if (file_exists("upload/" . $_FILES["fileToUpload"]["name"]))
                 {
@@ -46,7 +47,7 @@ class VideoConverter
                 {
                 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
                 "upload/" . $_FILES["fileToUpload"]["name"]);
-             
+
                 $outFilePath = "upload/" . $_FILES["fileToUpload"]["name"];
                 return $outFilePath;
                 }
@@ -57,7 +58,7 @@ class VideoConverter
                 echo "Invalid file";
             }
         }
-        
+
          /**
          * Delete a file or recursively delete a directory
          *
